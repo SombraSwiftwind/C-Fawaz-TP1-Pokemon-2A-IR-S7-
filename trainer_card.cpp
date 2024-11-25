@@ -1,7 +1,6 @@
 #include "headers/trainer_card.h"
 #include <iostream>
 #include <vector>
-#include "trainer_card.h"
 
 using namespace std;
 

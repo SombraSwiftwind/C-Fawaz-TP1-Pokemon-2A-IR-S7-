@@ -14,7 +14,8 @@ int main ()
     player1.addCardToBench(new EnergyCard("Electric"));
     player1.addCardToBench(new EnergyCard("Electric"));
     player1.addCardToBench(new TrainerCard("Ash", "heal all your action pokemon"));
-    player1.addCardToBench(new PokemonCard("Pikachu", "Electric", "Pikachu", 2, 100, 2, "thunder bolt", 20, 3, "thunder storm", 30));
+    vector<Attack> pikachuAttacks = { Attack(2 , 20, "thunder bolt"), Attack(3, 30, "thunder storm") };
+    player1.addCardToBench(new PokemonCard("Pikachu", "Electric", "Pikachu", 2, 100, 100, 0, pikachuAttacks));
     player1.activatePokemonCard(3);
     player1.attachEnergyCard(0, 0);
     player1.attachEnergyCard(0, 0);
@@ -25,7 +26,8 @@ int main ()
     Player player2("Germain");
     player2.addCardToBench(new EnergyCard("Grass") );
     player2.addCardToBench(new TrainerCard("Brock", "heal all your action pokemon") );
-    player2.addCardToBench(new PokemonCard("Bulbasaur", "Grass", "Bulbasaur", 1, 100, 2, "LeechSeed", 15, 3, "Vine Whip", 25));
+    vector<Attack> bulbasaurAttacks = { Attack(2, 15, "LeechSeed"), Attack(3, 25, "Vine Whip") };
+    player2.addCardToBench(new PokemonCard("Bulbasaur", "Grass", "Bulbasaur", 1, 100, 100, 0, bulbasaurAttacks));
     player2.activatePokemonCard(2);
     player2.attachEnergyCard(0, 0);
     cout << endl;

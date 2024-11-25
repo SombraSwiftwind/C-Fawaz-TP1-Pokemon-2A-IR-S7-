@@ -11,8 +11,8 @@ using namespace std;
 class Player {
     private:
         string playerName;
-        vector<Card&> benchCards; // Vecteur de cartes (trainer, pokemon, energy), c'est le deck des cartes en réserve
-        vector<PokemonCard&> actionCards; // Vecteur de cartes (trainer, pokemon, energy), c'est le deck des cartes d'action Pokemon
+        vector<Card*> benchCards; // Vecteur de cartes (trainer, pokemon, energy), c'est le deck des cartes en réserve
+        vector<PokemonCard*> actionCards; // Vecteur de cartes (trainer, pokemon, energy), c'est le deck des cartes d'action Pokemon
 
     public:
         // Constructor functions
@@ -20,23 +20,21 @@ class Player {
 
         // Getters
         string getName() const;
-        vector<Card&> getBenchCards() const;
-        vector<PokemonCard&> getActionCards() const;
+        vector<Card*> getBenchCards() const;
+        vector<PokemonCard*> getActionCards() const;
         
         // Setters
         void setName(const string& playerName);
-        void setBenchCards(const vector<Card&>& benchCards);
-        void setActionCards(const vector<PokemonCard&>& actionCards);
+        void setBenchCards(const vector<Card*>& benchCards);
+        void setActionCards(const vector<PokemonCard*>& actionCards);
 
         // Functions
-        void addCardToBench(Card& card);
+        void addCardToBench(Card* card);
         void activatePokemonCard(int pokemonCardNumber);
         void attachEnergyCard(int energyCardNumber, int pokemonCardNumber);
         void displayBench() const;
         void displayAction() const;
-        /*
-        void attack(int, int, Player target, int);
-        */
+        void attack(int pokemonCardNumber, int attackNumber, Player& target, int pokemonTargetNumber);
         void useTrainer(int trainerCardNumber);
 };
 

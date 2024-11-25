@@ -8,6 +8,11 @@ PokemonCard::PokemonCard(string cardName, string _pokemonType, string _familyNam
 : Card(cardName), pokemonType(_pokemonType), familyName(_familyName), evolutionLevel(_evolutionLevel), maxHP(_maxHP), hp(_HP), energyAttached(_energyAttached), attacks(_attacks) {
 }
 
+// Constructor definition for Attack struct
+Attack::Attack(int _energyCost, int _damage, const string& _description)
+: energyCost(_energyCost), damage(_damage), description(_description) {
+}
+
 
 // Getters
 string PokemonCard::getPokemonType() const {
@@ -64,12 +69,12 @@ void PokemonCard::setEnergyAttached(int energyValue) {
     this->energyAttached = this->energyAttached + energyValue;
 }
 
-void PokemonCard::setAttacks(const vector<tuple<int, int, string, int>>& attacks) {
-    this->attacks = attacks;
+void PokemonCard::setAttacks(const vector<Attack>& _attacks) {
+    this->attacks = _attacks;
 }
 
 
-void PokemonCard::displayInfo()
+void PokemonCard::displayInfo() const
 {
     // Display information about the Pokemon card
     cout << "Card Name: " << getCardName() << endl;
@@ -80,7 +85,9 @@ void PokemonCard::displayInfo()
     cout << "Current HP: " << getHP() << endl;
     cout << "Energy attached to the Pokemon: " << getEnergyAttached() << endl;
     cout << "Attacks: " << endl;
+    int attackNumber = 1;
     for (const auto& attack : attacks) {
-        cout << "  Name: " << attack.description << ", Energy Cost: " << attack.energyCost << ", Damage: " << attack.damage << endl;
+        cout << "Attack #" << attackNumber << ": Name: " << attack.description << ", Energy Cost: " << attack.energyCost << ", Damage: " << attack.damage << endl;
+        attackNumber++;
     }
 }

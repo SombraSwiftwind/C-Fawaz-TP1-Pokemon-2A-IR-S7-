@@ -15,7 +15,7 @@ class EnergyCard : public Card{
         EnergyCard(string energyName);
 
         // Functions
-
+        void displayInfo() const override;
 };
 
 #endif

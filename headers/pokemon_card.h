@@ -7,6 +7,16 @@
 
 using namespace std;
 
+struct Attack {
+    int energyCost;
+    int damage;
+    string description;
+
+    // Constructor declaration
+    Attack(int energyCost, int damage, const string& description);
+
+};
+
 class PokemonCard : public Card{
     private:
         string pokemonType;
@@ -16,13 +26,9 @@ class PokemonCard : public Card{
         int hp;
         int energyAttached;
 
-        struct Attack {
-            int energyCost;
-            int damage;
-            string description;
-        };
-
+        
         vector<Attack> attacks;
+
 
     public:
         // Constructor functions
@@ -44,7 +50,7 @@ class PokemonCard : public Card{
         void setMaxHP(int maxHP);
         void setHP(int hp);
         void setEnergyAttached(int energyValue);
-        void setAttacks(const vector<tuple<int, int, string, int>>& attacks);
+        void setAttacks(const vector<Attack>& attacks);
 
 
         // Functions
