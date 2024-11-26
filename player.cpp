@@ -64,9 +64,11 @@ void Player::attachEnergyCard(int energyCardNumber, int pokemonCardNumber) {
         EnergyCard* energyCard = dynamic_cast<EnergyCard*>(actualBenchCards[energyCardNumber]);
         PokemonCard* pokemonCard = dynamic_cast<PokemonCard*>(actionCards[pokemonCardNumber]);
         if (energyCard != nullptr && pokemonCard != nullptr) {
-            pokemonCard->setEnergyAttached(pokemonCard->getEnergyAttached());
-            benchCards.erase(benchCards.begin() + energyCardNumber);
-            cout << endl << getName() << " is attaching an energy card of type " << energyCard->getCardName() << " attached to " << pokemonCard->getCardName() << endl;
+            if (energyCard->getCardName() == pokemonCard->getPokemonType()) {
+                pokemonCard->setEnergyAttached(pokemonCard->getEnergyAttached());
+                benchCards.erase(benchCards.begin() + energyCardNumber);
+                cout << endl << getName() << " is attaching an energy card of type " << energyCard->getCardName() << " attached to " << pokemonCard->getCardName() << endl;
+            }
         }
     } else {cout << endl << "Invalid card number" << endl;}
 }
@@ -118,4 +120,3 @@ void Player::useTrainer(int trainerCardNumber) {
         }
     } else {cout << endl << "Invalid card number or the card isn't a Trainer card" << endl;}
 }
-
