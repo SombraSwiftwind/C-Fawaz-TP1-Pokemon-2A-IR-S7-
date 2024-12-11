@@ -65,7 +65,7 @@ void Player::attachEnergyCard(int energyCardNumber, int pokemonCardNumber) {
         PokemonCard* pokemonCard = dynamic_cast<PokemonCard*>(actionCards[pokemonCardNumber]);
         if (energyCard != nullptr && pokemonCard != nullptr) {
             if (energyCard->getCardName() == pokemonCard->getPokemonType()) {
-                pokemonCard->setEnergyAttached(pokemonCard->getEnergyAttached());
+                pokemonCard->setEnergyAttached(1);
                 benchCards.erase(benchCards.begin() + energyCardNumber);
                 cout << endl << getName() << " is attaching an energy card of type " << energyCard->getCardName() << " attached to " << pokemonCard->getCardName() << endl;
             }
